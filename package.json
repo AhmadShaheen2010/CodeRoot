@@ -1,0 +1,50 @@
+{
+  "name": "CodeRoot",
+  "displayName": "Code Root",
+  "description": "🌱 Visualize your code quality and keyboard habits through a digital plant that grows (or wilts) based on your linter score.",
+  "publisher": "TheCodingFalcon",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:coderootsView"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "coderoots-sidebar",
+          "title": "CodeRoots",
+          "icon": "media/leaf-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "coderoots-sidebar": [
+        {
+          "id": "coderootsView",
+          "name": "Plant Health",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.3",
+    "@types/vscode": "^1.99.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1"
+  }
+}
